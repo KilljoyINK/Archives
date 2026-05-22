@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KilljoyINK Archives — Tezos NFT Mint & Sales History</title>
+  <meta name="description" content="Complete provenance archive of all NFTs minted by killjoyINK on Tezos. Visual/3D Graphics, Animator, AR Developer. Mint history across HicEtNunc, Teia, and Objkt.com." />
+  <meta name="keywords" content="killjoyINK, Tezos NFT, HicEtNunc, Teia, Objkt, digital art, blockchain art, OBJKT, mixed media, animator, AR developer" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://killjoyink.github.io/archives/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KilljoyINK Archives — Tezos NFT Mint History" />
+  <meta property="og:description" content="Complete provenance archive of all NFTs minted by killjoyINK on the Tezos blockchain." />
+  <meta property="og:url" content="https://killjoyink.github.io/archives/" />
+  <meta property="og:image" content="https://cache.teia.rocks/ipfs/Qmf9Q95zbc4hL9cddLZEznjNkmP7RZbFicq5DkshqcHnFe" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KilljoyINK Archives" />
+  <meta name="twitter:description" content="Every token, every block, every edition. The complete on-chain record of killjoyINK's Tezos minting history." />
+  <meta name="twitter:image" content="https://cache.teia.rocks/ipfs/Qmf9Q95zbc4hL9cddLZEznjNkmP7RZbFicq5DkshqcHnFe" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://killjoyink.github.io/archives/#website",
+        "url": "https://killjoyink.github.io/archives/",
+        "name": "KilljoyINK Archives",
+        "description": "Complete provenance record of all NFTs minted by killjoyINK on the Tezos blockchain.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://killjoyink.github.io/archives/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://killjoyink.github.io/archives/#artist",
+        "name": "killjoyINK",
+        "url": "https://teia.art/killjoyink",
+        "sameAs": [
+          "https://objkt.com/@killjoyink",
+          "https://teia.art/killjoyink"
+        ],
+        "jobTitle": "Visual Artist, Animator, AR Developer",
+        "description": "Visual/3D Graphics. Animator/AR Developer. Mixed media NFT artist on Tezos.",
+        "knowsAbout": ["Digital Art", "3D Graphics", "Animation", "Augmented Reality", "NFT", "Tezos blockchain"]
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://killjoyink.github.io/archives/#collection",
+        "name": "KilljoyINK NFT Archives",
+        "url": "https://killjoyink.github.io/archives/",
+        "author": { "@id": "https://killjoyink.github.io/archives/#artist" },
+        "about": "Searchable archive and provenance documentation of all NFTs minted by killjoyINK on the Tezos blockchain across HicEtNunc, Teia, and Objkt.com marketplaces."
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<div id="app">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-title">
+        <h1>KilljoyINK<span class="accent">Archives</span></h1>
+        <p class="wallet-id">tz1QtcA4MvmCSLJ7DdvHzXEq2sm2bEC37xdG</p>
+      </div>
+      <nav class="header-links">
+        <a href="https://objkt.com/@killjoyink/created" target="_blank" rel="noopener">Objkt ↗</a>
+        <a href="https://teia.art/killjoyink" target="_blank" rel="noopener">Teia ↗</a>
+        <button id="export-csv" class="btn-export">Export CSV ↓</button>
+      </nav>
+    </div>
+    <p class="site-tagline">Every token. Every block. Every edition.<br>Because someone has to keep the receipts — and the blockchain sure won't narrate itself.</p>
+  </header>
+
+  <section class="stats-bar" id="stats-bar" aria-label="Archive statistics">
+    <div class="stat"><span class="stat-label">tokens minted</span><span class="stat-value" id="stat-count">—</span></div>
+    <div class="stat"><span class="stat-label">total editions</span><span class="stat-value" id="stat-editions">—</span></div>
+    <div class="stat"><span class="stat-label">smart contracts</span><span class="stat-value" id="stat-contracts">—</span></div>
+    <div class="stat"><span class="stat-label">first mint</span><span class="stat-value" id="stat-year">—</span></div>
+    <div class="stat"><span class="stat-label">latest mint</span><span class="stat-value" id="stat-latest">—</span></div>
+  </section>
+
+  <section class="controls" aria-label="Search and filter controls">
+    <div class="search-wrap">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" id="search-input" placeholder="search titles, descriptions, tags…" autocomplete="off" aria-label="Search tokens" />
+    </div>
+    <div class="filter-row">
+      <select id="filter-platform" aria-label="Filter by platform">
+        <option value="all">all platforms</option>
+        <option value="hen">HicEtNunc / Teia</option>
+        <option value="objkt">Objkt.com</option>
+      </select>
+      <select id="filter-media" aria-label="Filter by media type">
+        <option value="all">all media</option>
+        <option value="image">image</option>
+        <option value="video">video</option>
+        <option value="audio">audio</option>
+        <option value="interactive">interactive/HTML</option>
+      </select>
+      <select id="sort-by" aria-label="Sort order">
+        <option value="date-desc">newest first</option>
+        <option value="date-asc">oldest first</option>
+        <option value="name">name (A–Z)</option>
+        <option value="editions-desc">most editions</option>
+      </select>
+      <div class="view-toggle" role="group" aria-label="View mode">
+        <button id="view-grid" class="view-btn active" aria-pressed="true" title="Grid view">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </button>
+        <button id="view-list" class="view-btn" aria-pressed="false" title="List view">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <p class="results-count" id="results-count" aria-live="polite"></p>
+  </section>
+
+  <main id="token-grid" class="token-grid" aria-label="Minted tokens">
+    <div class="loading-state">
+      <p class="loading-text">Querying the chain…</p>
+      <p class="loading-sub">tz1QtcA4MvmCSLJ7DdvHzXEq2sm2bEC37xdG</p>
+    </div>
+  </main>
+
+  <!-- Detail drawer -->
+  <aside id="detail-drawer" class="detail-drawer" aria-hidden="true" aria-label="Token detail">
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true">
+      <div class="drawer-header">
+        <h2 id="detail-title">Token Detail</h2>
+        <button id="drawer-close" aria-label="Close detail panel">✕</button>
+      </div>
+      <div class="drawer-content" id="drawer-content"></div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <p>Data sourced via <a href="https://tzkt.io" target="_blank" rel="noopener">TZKT API</a> · Built with library & information science best practices · <a href="https://github.com/killjoyink/archives" target="_blank" rel="noopener">View on GitHub ↗</a></p>
+  <p class="footer-note">KilljoyINK Archives is an independent documentation project. Not affiliated with Objkt, Teia, or Tezos Foundation.</p>
+</footer>
+
+<script src="assets/archive.js"></script>
+</body>
+</html>
