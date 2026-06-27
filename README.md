@@ -4,35 +4,6 @@
 
 Because the work deserves documentation as serious as the work itself.
 
----
-
-## What This Is
-
-A static web archive and searchable index of all tokens minted by the artist **killjoyINK** (`tz1QtcA4MvmCSLJ7DdvHzXEq2sm2bEC37xdG`) across:
-
-- **HicEtNunc (HEN)** — `KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton`
-- **Teia** — same HEN contract, successor platform
-- **Objkt.com** — `KT1Aq4wWmVanpQhq4TTfjZXB5AjFpx15iQMM` and individual collection contracts
-
-## Live Data
-
-The archive fetches live blockchain data at page load via the [TZKT API](https://api.tzkt.io/) — no build step, no stale JSON. Every visit reflects the current on-chain state.
-
-## Features
-
-| Feature | Description |
-|---|---|
-| Live TZKT API fetch | All minted FA2 tokens, automatically filtered from DeFi noise |
-| Full-text search | Searches title, description, and tags |
-| Platform filter | HicEtNunc/Teia vs Objkt.com |
-| Media type filter | Image / video / audio / interactive |
-| Sort options | Date, name, edition count |
-| Grid + list view | Toggle between visual browsing and tabular data |
-| Detail drawer | Full provenance: contract, block, IPFS hash, royalties |
-| CSV export | All visible tokens as downloadable CSV |
-| SEO optimized | JSON-LD schema.org markup for VisualArtwork + Person + CollectionPage |
-| GitHub Pages ready | Zero build dependencies, deploys from repo root |
-
 ## Folder Structure
 
 ```
@@ -46,23 +17,6 @@ killjoyink-archives/
 ├── _config.yml         ← GitHub Pages config
 └── README.md
 ```
-
-## Deploy to GitHub Pages
-
-1. Fork or create a repo named `killjoyink-archives`
-2. Push all files
-3. Go to **Settings → Pages → Source: Deploy from branch → main / root**
-4. Your archive will be live at `https://[username].github.io/killjoyink-archives/`
-
-## Customizing the Artist Wallet
-
-Edit the top of `assets/archive.js`:
-
-```js
-const WALLET = 'tz1QtcA4MvmCSLJ7DdvHzXEq2sm2bEC37xdG';
-```
-
-Replace with any Tezos wallet address to generate an archive for any artist.
 
 ## Data Sources & Attribution
 
